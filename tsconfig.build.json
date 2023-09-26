@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc/lib",
+    "declaration": true,
+    "sourceMap": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "paths": {
+      "@my-lib2/core": [
+        "dist/packages/core"
+      ],
+      "@my-lib2/db": [ "dist/packages/db"],
+      "@my-lib2/local": [ "dist/packages/local"],
+      "@my-lib2/shared": [ "dist/packages/shared"]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

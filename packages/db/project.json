@@ -1,0 +1,17 @@
+{
+  "name": "db",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/db",  "prefix": "noda",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["{workspaceRoot}/dist/packages/db"],
+      "options": {
+        "project": "packages/db/ng-package.json",
+        "tsConfig": "tsconfig.build.json"
+      }
+    }
+  },
+  "tags": []
+}

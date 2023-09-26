@@ -1,0 +1,18 @@
+{
+  "name": "local",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/local",  "prefix": "noda",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["{workspaceRoot}/dist/packages/local"],
+
+      "options": {
+        "project": "packages/local/ng-package.json",
+        "tsConfig": "tsconfig.build.json"
+      }
+    }
+  },
+  "tags": []
+}
