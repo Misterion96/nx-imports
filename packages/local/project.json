@@ -2,16 +2,33 @@
   "name": "local",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "packages/local",  "prefix": "noda",
+  "sourceRoot": "packages/local",
+  "prefix": "noda",
   "targets": {
-    "build": {
-      "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/packages/local"],
-
+    "native-build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
       "options": {
         "project": "packages/local/ng-package.json",
-        "tsConfig": "tsconfig.build.json"
+        "tsConfig": "packages/local/tsconfig.lib.build.json"
       }
+    },
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": [
+        "dist/packages/local"
+      ],
+      "options": {
+        "project": "packages/local/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/local/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/local/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
     }
   },
   "tags": []

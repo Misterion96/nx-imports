@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.lib.prod.json",
+  "compilerOptions": {
+    "paths": {
+      "@my-lib2/core": [
+        "dist/packages/core"
+      ],
+      "@my-lib2/db": [
+        "dist/packages/db"
+      ],
+      "@my-lib2/local": [
+        "dist/packages/local"
+      ],
+      "@my-lib2/shared": [
+        "dist/packages/shared"
+      ]
+    }
+  },
+}

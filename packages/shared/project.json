@@ -2,16 +2,33 @@
   "name": "shared",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "src",
+  "sourceRoot": "packages/shared",
   "prefix": "noda",
   "targets": {
-    "build": {
-      "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/packages/shared"],
+    "native-build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
       "options": {
         "project": "packages/shared/ng-package.json",
-        "tsConfig": "tsconfig.build.json"
+        "tsConfig": "packages/shared/tsconfig.lib.build.json"
       }
+    },
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": [
+        "dist/packages/shared"
+      ],
+      "options": {
+        "project": "packages/shared/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/shared/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/shared/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
     }
   },
   "tags": []

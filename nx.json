@@ -54,7 +54,34 @@
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": [{ "projects": "dependencies", "target": "build" }]
+      "dependsOn": [
+        {
+          "projects": "dependencies",
+          "target": "build"
+        }
+      ]
+    },
+    "native-build": {
+      "dependsOn": [
+        {
+          "projects": "dependencies",
+          "target": "native-build",
+          "params": "forward"
+        }
+      ]
+    },
+    "test": {
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/jest.preset.js"
+      ]
+    },
+    "lint": {
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json"
+      ]
     }
   },
   "defaultProject": "demo-additional-fields"

@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
-  "include": ["packages/**/*"],
+  "include": [
+    "packages/**/*"
+  ],
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -19,16 +21,29 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
-    "lib": ["es2020", "dom"],
-    "typeRoots": ["node_modules/@types"],
-    "types": ["node"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node"
+    ],
     "paths": {
       "@my-lib2/core": [
-        "dist/packages/core"
+        "packages/core/index.ts"
       ],
-      "@my-lib2/db": [ "dist/packages/db"],
-      "@my-lib2/local": [ "dist/packages/local"],
-      "@my-lib2/shared": [ "dist/packages/shared"]
+      "@my-lib2/db": [
+        "packages/db/index.ts"
+      ],
+      "@my-lib2/local": [
+        "packages/local/index.ts"
+      ],
+      "@my-lib2/shared": [
+        "packages/shared/index.ts"
+      ]
     }
   },
   "angularCompilerOptions": {
@@ -41,7 +56,9 @@
     "files": true,
     "transpileOnly": true,
     "compilerOptions": {
-      "types": ["node"],
+      "types": [
+        "node"
+      ],
       "module": "commonjs"
     }
   }

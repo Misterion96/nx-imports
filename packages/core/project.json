@@ -5,13 +5,30 @@
   "sourceRoot": "packages/core",
   "prefix": "noda",
   "targets": {
-    "build": {
-      "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/packages/core"],
+    "native-build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
       "options": {
         "project": "packages/core/ng-package.json",
-        "tsConfig": "tsconfig.build.json"
+        "tsConfig": "packages/core/tsconfig.lib.build.json"
       }
+    },
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": [
+        "dist/packages/core"
+      ],
+      "options": {
+        "project": "packages/core/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/core/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/core/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
     }
   },
   "tags": []

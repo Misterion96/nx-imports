@@ -2,15 +2,33 @@
   "name": "db",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "packages/db",  "prefix": "noda",
+  "sourceRoot": "packages/db",
+  "prefix": "noda",
   "targets": {
-    "build": {
-      "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/packages/db"],
+    "native-build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
       "options": {
         "project": "packages/db/ng-package.json",
-        "tsConfig": "tsconfig.build.json"
+        "tsConfig": "packages/db/tsconfig.lib.build.json"
       }
+    },
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": [
+        "dist/packages/db"
+      ],
+      "options": {
+        "project": "packages/db/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/db/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/db/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
     }
   },
   "tags": []
